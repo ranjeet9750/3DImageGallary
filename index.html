@@ -19,9 +19,16 @@
     </div>
     <script>
         let box = document.querySelector('.box');
+        function rotatePhoto(xPosition){
+            box.style.transform="perspective(1000px) rotateY("+xPosition+"deg)";
+        }
         window.onmousemove=function(e){
             let x = e.clientX/3;
-            box.style.transform="perspective(1000px) rotateY("+x+"deg)";
+            rotatePhoto(x);
+        }
+        window.ontouchmove=function(e){
+        let touch=e.touches[0];
+        rotatePhoto(touch);
         }
     </script>
 </body>
