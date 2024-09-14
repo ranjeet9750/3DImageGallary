@@ -19,16 +19,20 @@
     </div>
     <script>
         let box = document.querySelector('.box');
+
+        //Function to handle both mouse and touch movements
         function rotatePhoto(xPosition){
             box.style.transform="perspective(1000px) rotateY("+xPosition+"deg)";
         }
+        //Event listener for Desktop
         window.onmousemove=function(e){
             let x = e.clientX/3;
             rotatePhoto(x);
         }
+        //Event listener for Mobile
         window.ontouchmove=function(e){
         let touch=e.touches[0];
-        rotatePhoto(touch);
+        rotatePhoto(touch.clientX);
         }
     </script>
 </body>
